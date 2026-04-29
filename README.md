@@ -1,2 +1,15 @@
-# Promt-Optimizer
-PROSE is an AI-driven prompt optimization system for LLMs that combines rule-based, ML-guided, and genetic algorithms to improve clarity, structure, and effectiveness. It supports cost-aware and context-aware modes and provides metrics like semantic fidelity and improvement score for real-time prompt refinement.
+# Prompt Optimizer using Hybrid ML + Genetic Algorithm
+
+Scalable Flask project skeleton for a prompt optimization API.
+
+## Included Structure
+
+- App factory setup for clean configuration and testing support
+- Blueprint-based API routing with `POST /optimize_prompt`
+- Dedicated service modules for each optimization stage
+- Placeholder schemas for request and response contracts
+- ML-based strategy predictor using feature extraction and Random Forest classification
+
+## Next Step
+
+Implement the service logic and connect the orchestration flow inside `PromptOptimizerService`.
