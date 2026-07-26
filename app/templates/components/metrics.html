@@ -1,0 +1,49 @@
+<div class="section-heading">
+    <div>
+        <span class="eyebrow">Evaluation</span>
+        <h2>Metrics</h2>
+    </div>
+    <span class="panel-sub" id="metrics-mode-label">Mode: cost</span>
+</div>
+
+<div class="metrics-grid">
+
+    <div class="stat-card">
+        <span class="stat-label">Tokens before → after</span>
+        <span class="stat-value">
+            <span id="metric-tokens-before">—</span>
+            <span style="color: var(--ink-faint); font-size: 16px;">→</span>
+            <span id="metric-tokens-after">—</span>
+        </span>
+        <div class="stat-bar"><div class="stat-bar-fill" id="metric-tokens-bar" style="width: 0%;"></div></div>
+    </div>
+
+    <div class="stat-card">
+        <span class="stat-label">Token reduction</span>
+        <span class="stat-value" id="metric-token-reduction">—</span>
+        <span class="stat-delta" id="metric-token-reduction-delta"></span>
+    </div>
+
+    <div class="stat-card">
+        <span class="stat-label">Semantic retention</span>
+        <span class="stat-value"><span id="metric-semantic-retention">—</span><span style="font-size:14px; color: var(--ink-faint);">%</span></span>
+        <div class="stat-bar"><div class="stat-bar-fill" id="metric-semantic-bar" style="width: 0%;"></div></div>
+    </div>
+
+    <div class="stat-card">
+        <span class="stat-label">Improvement score</span>
+        <span class="stat-value" id="metric-improvement">—</span>
+        <div class="stat-bar"><div class="stat-bar-fill" id="metric-improvement-bar" style="width: 0%; background: var(--success);"></div></div>
+    </div>
+
+    <div class="stat-card">
+        <span class="stat-label">Output quality before → after</span>
+        <span class="stat-value">
+            <span id="metric-quality-before">—</span>
+            <span style="color: var(--ink-faint); font-size: 16px;">→</span>
+            <span id="metric-quality-after">—</span>
+        </span>
+        <span class="stat-delta" id="metric-quality-delta"></span>
+    </div>
+
+</div>

@@ -1,0 +1,41 @@
+<div class="panel" id="output-panel">
+
+    <div class="panel-header">
+        <div>
+            <h2>Optimized prompt</h2>
+            <div class="panel-sub">Winning candidate across rule-based, ML-guided, and genetic stages</div>
+        </div>
+        <span class="badge" id="chosen-stage-badge" hidden></span>
+    </div>
+
+    <div class="panel-body">
+
+        <div class="banner banner-warning" id="fallback-banner" hidden>
+            <span>⚠</span>
+            <span id="fallback-banner-text">Pipeline fallback engaged — showing a cleaned version of the original prompt.</span>
+        </div>
+
+        <div class="banner banner-danger" id="error-banner" hidden>
+            <span>⚠</span>
+            <span id="error-banner-text">Could not reach the optimization API.</span>
+        </div>
+
+        <div id="output-empty-state" class="output-empty">
+            <span class="glyph">{ }</span>
+            <p>Run a prompt on the left to see the optimized output, the branch it came from, and the resulting metrics here.</p>
+        </div>
+
+        <div id="output-result" hidden>
+            <div class="output-meta">
+                <span class="eyebrow">Result</span>
+                <button class="btn btn-ghost btn-sm" id="copy-output-btn" type="button">
+                    Copy
+                    <span class="copy-feedback" id="copy-feedback">Copied</span>
+                </button>
+            </div>
+            <div class="output-prompt" id="optimized-prompt-text"></div>
+        </div>
+
+    </div>
+
+</div>

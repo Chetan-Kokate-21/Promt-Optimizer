@@ -1,0 +1,97 @@
+<div class="panel">
+
+    <div class="panel-header">
+        <div>
+            <h2>Optimization pipeline</h2>
+            <div class="panel-sub">Every request runs all three optimizers below; the brain keeps whichever scores highest.</div>
+        </div>
+        <span class="eyebrow" id="pipeline-status">Idle</span>
+    </div>
+
+    <div class="panel-body">
+
+        <div class="pipeline-track">
+            <svg class="pipeline-svg" id="pipeline-svg" viewBox="0 0 1080 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Prompt optimization pipeline diagram">
+
+                <!-- straight-line edges, front stages -->
+                <path class="pipeline-edge" id="edge-0" d="M 108 150 L 190 150"></path>
+                <path class="pipeline-edge" id="edge-1" d="M 298 150 L 380 150"></path>
+                <path class="pipeline-edge" id="edge-2" d="M 488 150 L 570 150"></path>
+                <path class="pipeline-edge" id="edge-3" d="M 678 150 L 720 150"></path>
+
+                <!-- fork into three optimizer branches -->
+                <path class="pipeline-edge" id="edge-fork-rule" d="M 720 150 C 760 150, 760 70, 800 70"></path>
+                <path class="pipeline-edge" id="edge-fork-ml" d="M 720 150 L 800 150"></path>
+                <path class="pipeline-edge" id="edge-fork-genetic" d="M 720 150 C 760 150, 760 230, 800 230"></path>
+
+                <!-- merge back into formatter -->
+                <path class="pipeline-edge" id="edge-merge-rule" d="M 910 70 C 950 70, 950 150, 990 150"></path>
+                <path class="pipeline-edge" id="edge-merge-ml" d="M 910 150 L 990 150"></path>
+                <path class="pipeline-edge" id="edge-merge-genetic" d="M 910 230 C 950 230, 950 150, 990 150"></path>
+
+                <!-- linear preparation stages -->
+                <g class="pipeline-node" id="node-preprocess" data-stage="preprocess">
+                    <rect x="8" y="128" width="100" height="44" rx="8"></rect>
+                    <text x="58" y="146" text-anchor="middle">Preprocess</text>
+                    <text class="node-sub" x="58" y="160" text-anchor="middle">normalize</text>
+                </g>
+
+                <g class="pipeline-node" id="node-refine" data-stage="semantic_refine">
+                    <rect x="190" y="128" width="108" height="44" rx="8"></rect>
+                    <text x="244" y="146" text-anchor="middle">Refine</text>
+                    <text class="node-sub" x="244" y="160" text-anchor="middle">semantic cleanup</text>
+                </g>
+
+                <g class="pipeline-node" id="node-analyze" data-stage="context_analysis">
+                    <rect x="380" y="128" width="108" height="44" rx="8"></rect>
+                    <text x="434" y="146" text-anchor="middle">Analyze</text>
+                    <text class="node-sub" x="434" y="160" text-anchor="middle">domain + intent</text>
+                </g>
+
+                <g class="pipeline-node" id="node-expand" data-stage="domain_term_expansion">
+                    <rect x="570" y="128" width="108" height="44" rx="8"></rect>
+                    <text x="624" y="146" text-anchor="middle">Expand</text>
+                    <text class="node-sub" x="624" y="160" text-anchor="middle">related terms</text>
+                </g>
+
+                <!-- brain fork label -->
+                <text class="eyebrow" x="750" y="18" style="font-size: 10.5px; fill: var(--ink-faint);">brain: run + compare all three</text>
+
+                <!-- three parallel optimizer branches -->
+                <g class="pipeline-node" id="node-rule" data-stage="rule_based">
+                    <rect x="800" y="48" width="110" height="44" rx="8"></rect>
+                    <text x="855" y="66" text-anchor="middle">Rule-based</text>
+                    <text class="node-sub" x="855" y="80" text-anchor="middle" id="score-rule">—</text>
+                </g>
+
+                <g class="pipeline-node" id="node-ml" data-stage="ml_guided">
+                    <rect x="800" y="128" width="110" height="44" rx="8"></rect>
+                    <text x="855" y="146" text-anchor="middle">ML-guided</text>
+                    <text class="node-sub" x="855" y="160" text-anchor="middle" id="score-ml">—</text>
+                </g>
+
+                <g class="pipeline-node" id="node-genetic" data-stage="genetic">
+                    <rect x="800" y="208" width="110" height="44" rx="8"></rect>
+                    <text x="855" y="226" text-anchor="middle">Genetic</text>
+                    <text class="node-sub" x="855" y="240" text-anchor="middle" id="score-genetic">—</text>
+                </g>
+
+                <g class="pipeline-node" id="node-format" data-stage="format">
+                    <rect x="990" y="128" width="82" height="44" rx="8"></rect>
+                    <text x="1031" y="146" text-anchor="middle">Format</text>
+                    <text class="node-sub" x="1031" y="160" text-anchor="middle">output</text>
+                </g>
+
+            </svg>
+        </div>
+
+        <div class="pipeline-legend">
+            <div class="legend-item"><span class="legend-swatch" style="background: var(--stage-rule);"></span> Rule-based optimizer</div>
+            <div class="legend-item"><span class="legend-swatch" style="background: var(--stage-ml);"></span> ML-guided optimizer</div>
+            <div class="legend-item"><span class="legend-swatch" style="background: var(--stage-genetic);"></span> Genetic algorithm</div>
+            <div class="legend-item"><span class="legend-swatch" style="background: var(--success);"></span> Chosen branch (highest improvement score)</div>
+        </div>
+
+    </div>
+
+</div>

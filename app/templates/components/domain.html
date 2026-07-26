@@ -1,0 +1,45 @@
+<div class="panel">
+
+    <div class="panel-header">
+        <div>
+            <h2>Domain analysis</h2>
+            <div class="panel-sub">What PROSE thinks this prompt is about, and what it added because of that</div>
+        </div>
+    </div>
+
+    <div class="panel-body">
+
+        <div id="domain-empty" class="output-empty" style="padding: var(--sp-4) 0;">
+            <p>Run a prompt to see the subject area PROSE detected, and any specialist vocabulary it folded in.</p>
+        </div>
+
+        <div id="domain-result" hidden>
+
+            <div class="domain-summary">
+                <div class="domain-icon" id="domain-icon" title="Detected subject area">—</div>
+                <div>
+                    <div class="domain-name" id="domain-name">General</div>
+                    <div class="domain-intent">Detected intent: <span id="domain-intent">—</span></div>
+                </div>
+            </div>
+
+            <div class="domain-block">
+                <h4>Why it matters</h4>
+                <p class="domain-guidance" id="domain-guidance">—</p>
+            </div>
+
+            <div class="domain-block">
+                <h4>Related terms considered</h4>
+                <p class="field-hint" style="margin-bottom: var(--sp-2);">
+                    Vocabulary PROSE associates with this domain. In <strong>Context</strong> mode these get
+                    woven into the optimized prompt for extra grounding; in <strong>Cost</strong> mode they're
+                    detected but left out to keep the prompt short.
+                </p>
+                <div class="tag-row" id="domain-terms"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

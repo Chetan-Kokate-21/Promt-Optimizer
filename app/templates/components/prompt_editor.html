@@ -1,0 +1,88 @@
+<div class="panel" id="editor-panel">
+
+    <div class="panel-header">
+        <div>
+            <h2>Input prompt</h2>
+            <div class="panel-sub">Raw instruction before optimization</div>
+        </div>
+        <div class="segmented" role="radiogroup" aria-label="Optimization mode">
+            <input type="radio" name="mode" id="mode-cost" value="cost" checked>
+            <label for="mode-cost">
+                Cost
+                <span class="seg-caption">fewer tokens</span>
+            </label>
+            <input type="radio" name="mode" id="mode-context" value="context">
+            <label for="mode-context">
+                Context
+                <span class="seg-caption">more grounding</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <form id="optimize-form">
+
+            <div class="field">
+                <label for="prompt-input">Prompt</label>
+                <textarea
+                    id="prompt-input"
+                    class="input"
+                    placeholder="e.g. Explain why our ETL pipeline keeps failing on the nightly load and how to fix it."
+                    required
+                ></textarea>
+                <div class="char-count">
+                    <span id="prompt-token-estimate">0 tokens (est.)</span>
+                    <span id="prompt-char-count">0 characters</span>
+                </div>
+            </div>
+
+            <details class="advanced" style="margin-top: 16px;">
+                <summary>Advanced context &amp; constraints</summary>
+                <div class="advanced-grid">
+
+                    <div class="input-row">
+                        <div class="field">
+                            <label for="ctx-role">Role</label>
+                            <input class="input" type="text" id="ctx-role" placeholder="Act as a senior data engineer">
+                        </div>
+                        <div class="field">
+                            <label for="ctx-audience">Audience</label>
+                            <input class="input" type="text" id="ctx-audience" placeholder="end user">
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="field">
+                            <label for="ctx-tone">Tone</label>
+                            <input class="input" type="text" id="ctx-tone" placeholder="clear and professional">
+                        </div>
+                        <div class="field">
+                            <label for="meta-domain">Domain override</label>
+                            <input class="input" type="text" id="meta-domain" placeholder="auto-detect">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="ctx-examples">Examples <span class="field-hint">(one per line, optional)</span></label>
+                        <textarea class="input" id="ctx-examples" style="min-height: 72px; font-family: var(--font-body); font-size: 13px;" placeholder="Input: ... | Output: ..."></textarea>
+                    </div>
+
+                    <div class="field">
+                        <label for="constraints-input">Constraints <span class="field-hint">(key: value, one per line, optional)</span></label>
+                        <textarea class="input" id="constraints-input" style="min-height: 64px; font-family: var(--font-body); font-size: 13px;" placeholder="max_length: 200&#10;format: markdown"></textarea>
+                    </div>
+
+                </div>
+            </details>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-ghost btn-sm" id="clear-btn">Clear</button>
+                <button type="submit" class="btn btn-primary" id="optimize-btn">
+                    <span id="optimize-btn-label">Optimize prompt</span>
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}PROSE — Prompt Refinement, Optimization & Semantic Evaluation{% endblock %}
+
+{% block content %}
+
+{% include "components/navbar.html" %}
+
+<main class="dashboard">
+
+    <section id="hero-section">
+
+    <div class="hero">
+
+        <div class="hero-left">
+
+            <span class="hero-badge">
+
+                AI Prompt Engineering Platform
+
+            </span>
+
+            <h1>
+
+                PROSE: Prompt Refinement, Optimization and Semantic Evaluation
+
+            </h1>
+
+            <p>
+
+                Build, optimize and evaluate AI prompts using
+                Semantic Refinement, Machine Learning,
+                Rule-Based Optimization and Genetic Algorithms.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <section id="workspace">
+
+        <div class="workspace-left">
+            {% include "components/prompt_editor.html" %}
+        </div>
+
+        <div class="workspace-right">
+            {% include "components/prompt_output.html" %}
+        </div>
+
+    </section>
+
+    <section id="pipeline-section">
+        {% include "components/pipeline.html" %}
+    </section>
+
+    <section id="metrics-section">
+        {% include "components/metrics.html" %}
+    </section>
+
+    <section id="analysis-section">
+
+        <div class="analysis-left">
+            {% include "components/domain.html" %}
+        </div>
+
+        <div class="analysis-right">
+            {% include "components/console.html" %}
+        </div>
+
+    </section>
+
+</main>
+
+{% include "components/footer.html" %}
+
+{% endblock %}
