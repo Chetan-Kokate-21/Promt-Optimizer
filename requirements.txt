@@ -1,10 +1,10 @@
 Flask==3.1.3
 gunicorn==23.0.0
 
+numpy==2.2.6
+scipy==1.15.3
 scikit-learn==1.7.1
-sentence-transformers==5.1.0
+joblib==1.5.2
+threadpoolctl==3.6.0
 
-numpy
-scipy
-joblib
-threadpoolctl
+sentence-transformers==5.1.0
